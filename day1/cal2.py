@@ -9,13 +9,12 @@ with open('input.txt') as f:
         else:
             elf += 1
             elves.append(0)
+elves.sort(reverse=True)
+print(elves)
 
 
-mostCal = 0
-for elve in elves:
-    if elve > mostCal:
-        mostCal = elve
-        pos = elves.index(elve)
-    else:
-        pass
-print(pos, mostCal)
+top3 = elves[0] + elves[1] + elves[2]
+print(top3)
+print(elves[0], elves[1], elves[2])
+
+            
