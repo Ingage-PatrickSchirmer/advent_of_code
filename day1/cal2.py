@@ -10,11 +10,11 @@ with open('input.txt') as f:
             elf += 1
             elves.append(0)
 elves.sort(reverse=True)
-print(elves)
+# print(elves)
 
 
 top3 = elves[0] + elves[1] + elves[2]
 print(top3)
-print(elves[0], elves[1], elves[2])
+# print(elves[0], elves[1], elves[2])
 
             
