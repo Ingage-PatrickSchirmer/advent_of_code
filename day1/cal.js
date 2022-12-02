@@ -1,1 +1,0 @@
-var fr = new FileReader()
