@@ -4,7 +4,7 @@ import string
 pk = string.ascii_lowercase + string.ascii_uppercase
 
 
-with open("input.txt") as f:
+with open("./day3/input.txt") as f:
     inputs = f.read().splitlines()
 
 
@@ -18,8 +18,8 @@ total2 = sum(
     for group in (inputs[i : i + 3] for i in range(0, len(inputs), 3))
 )
 
-print(total1)
-print(total2)
+# print(total1)
+# print(total2)
 
 ruck = ["".join(set(pack[: len(pack) // 2]) & (set(pack[len(pack) // 2 :]))) for pack in inputs]
 # print(ruck)
@@ -40,3 +40,8 @@ r1 = [set(pack[len(pack) // 2 :]) & (set(pack[len(pack) // 2 :])) for pack in in
 #     b1 = i[len(i) // 2 :] 
 #     check(a1,b1)
     
+same = [set.intersection(*map(set, group)) for group in (inputs[i : i + 3] for i in range(0, len(inputs), 3))]
+
+
+
+print(same.items())
