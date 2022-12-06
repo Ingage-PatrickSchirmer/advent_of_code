@@ -1,6 +1,6 @@
 with open('./day6/input.txt') as f:
     lines = f.readlines()
-
+theHinge = [4,14]
 def check(lines):
     key = ''    
     for line in lines:
@@ -12,13 +12,13 @@ def check(lines):
     for line in lines:
         line = line.strip()
         for i,j in enumerate(line):    
-            four = line[i:i+4]
+            four = line[i:i+theHinge[0]]
             for i in four:
                 if i not in temp: 
                     temp.append(i)
-                    if len(temp) == 4:
+                    if len(temp) == theHinge[0]:
                         spot = key.index("".join(temp))
-                        print(spot + 4)
+                        print(spot + theHinge[0])
                         return(temp)
                 else:
                     pass
@@ -40,13 +40,13 @@ def check2(lines):
     for line in lines:
         line = line.strip()
         for i,j in enumerate(line):    
-            four = line[i:i+14]
+            four = line[i:i+theHinge[1]]
             for i in four:
                 if i not in temp: 
                     temp.append(i)
-                    if len(temp) == 14:
+                    if len(temp) == theHinge[1]:
                         spot = key.index("".join(temp))
-                        print(spot + 14)
+                        print(spot + theHinge[1])
                         return(temp)
                 else:
                     pass
