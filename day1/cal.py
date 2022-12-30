@@ -28,3 +28,6 @@ with open('test2.txt', 'w') as w:
 #     else:
 #         pass
 # print(pos, mostCal)
+
+
+
