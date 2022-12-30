@@ -13,6 +13,9 @@ for k in range(10):
 visited = set()
 visited.add(knots[-1])
 
+
+#this solution uses the new Match statement introduced in Python 3.10
+
 for movement in input:
     direction, steps = movement.split()
     for _ in range(int(steps)):
