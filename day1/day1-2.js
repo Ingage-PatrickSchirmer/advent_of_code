@@ -37,7 +37,6 @@ function sumCalibrationValues(lines) {
     return totalSum;
 }
 
-// Read input file
 const input = fs.readFileSync('input.txt', 'utf8');
 const lines = input.split('\n').filter(line => line.trim() !== '');
 console.log(`Total Sum: ${sumCalibrationValues(lines)}`);
