@@ -1,12 +1,12 @@
 const fs = require('fs');
 
-// Adjusted card values for Part 2
+
 const cardValuesPart2 = {
     "A": 14, "K": 13, "Q": 12, "J": 1, "T": 10,
     "9": 9, "8": 8, "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2
 };
 
-// Joker hand strength matrix
+
 const jokerHandStrength = [
     [0, 1, 2, 3, 4, 5, 6, 7],
     [0, 2, 4, 5, 6, 5, 7, 7],
@@ -16,7 +16,7 @@ const jokerHandStrength = [
     [0, 7, 2, 3, 4, 5, 6, 7],
 ];
 
-// Modified evaluateHand function to incorporate Part 2 logic
+
 function evaluateHand(hand) {
     let counts = hand.split('').reduce((acc, card) => {
         acc[card] = (acc[card] || 0) + 1;
@@ -40,7 +40,7 @@ function evaluateHand(hand) {
         type = types[5]; // '1 pair'
     }
 
-    // Determine strength based on joker count
+    
     let handStrength = types.indexOf(type);
     handStrength = jokerHandStrength[jokerCount][handStrength];
 
@@ -48,14 +48,14 @@ function evaluateHand(hand) {
     return { hand, type, strength: handStrength };
 }
 
-// Compare hands function adapted for Part 2
+
 function compareHands(hand1, hand2) {
-    // First compare by strength
+    
     if (hand1.strength !== hand2.strength) {
         return hand1.strength - hand2.strength;
     }
 
-    // Then compare card by card for hands of the same strength
+    
     for (let i = 0; i < hand1.hand.length; i++) {
         if (cardValuesPart2[hand1.hand[i]] !== cardValuesPart2[hand2.hand[i]]) {
             return cardValuesPart2[hand1.hand[i]] - cardValuesPart2[hand2.hand[i]];
@@ -65,7 +65,7 @@ function compareHands(hand1, hand2) {
     return 0;
 }
 
-// Remaining functions and logic same as Day7-1
+
 function processInputAndCalculateWinnings(filename) {
     const data = fs.readFileSync(filename, 'utf8').trim().split('\n');
     let hands = data.map(line => {
@@ -75,19 +75,19 @@ function processInputAndCalculateWinnings(filename) {
 
     console.log("Initial Hands and Bids:", hands);
 
-    // Sort hands from weakest to strongest
+    
     hands.sort((a, b) => compareHands(a.hand, b.hand));
 
     console.log("Sorted Hands:", hands);
 
-    // Calculate rank and value for each hand
+    
     hands.forEach((hand, index) => {
         hand.rank = index + 1;
         hand.value = hand.bid * hand.rank;
         console.log(`Hand: ${hand.originalHand}, Rank: ${hand.rank}, Value: ${hand.value}`);
     });
 
-    // Calculate total winnings
+    
     return hands.reduce((sum, hand) => sum + hand.value, 0);
 }
 
