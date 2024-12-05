@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "heap": "^0.2.7",
+    "heap-js": "^2.3.0",
+    "promise-path": "^1.4.4"
+  }
+}
